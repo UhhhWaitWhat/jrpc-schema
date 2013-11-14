@@ -1,0 +1,25 @@
+{
+  "name": "jrpc-schema",
+  "version": "0.0.1",
+  "description": "Parses a json schema into a simple usable api object",
+  "main": "main.js",
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "keywords": [
+    "json",
+    "rpc",
+    "json-rpc",
+    "api",
+    "schema"
+  ],
+  "author": "Florian Albertz",
+  "license": "BSD-2-Clause",
+  "devDependencies": {
+    "must": "~0.10.0",
+    "mocha": "~1.14.0"
+  },
+  "dependencies": {
+    "JSV": "~4.0.2"
+  }
+}
