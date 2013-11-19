@@ -18,7 +18,7 @@ function validateParams(schema, resolveReferences, params) {
 	if(Object.prototype.toString.call(params) === '[object Array]') {
 		return validateByOrder(params)
 	} else {
-		return validateByname(params);
+		return validateByName(params);
 	}
 
 	//Validate our parameters assuming they are supplied in the correct order
