@@ -32,7 +32,12 @@ function executeMethod(schema, resolveReferences, cbs, path, handler) {
 
 	//Do we have to try validating by name?
 	if(params.length === 1 && isSchema(params[0])) {
-		valid = validateParams(schema.params, resolveReferences, params[0]) || validateParams(schema.params, resolveReferences, params)
+		if(validateParams(schema.params, resolveReferences, params[0])) {
+			valid = true;
+			params = params[0];
+		} else if (validateParams(schema.params, resolveReferences, params)) {
+			valid = true;
+		} 
 	} else {
 		valid = validateParams(schema.params, resolveReferences, params)
 	}
