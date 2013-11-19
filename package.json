@@ -1,6 +1,6 @@
 {
   "name": "jrpc-schema",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Parses a json schema into a simple usable api object",
   "main": "main.js",
   "scripts": {
