@@ -2,28 +2,40 @@
   "name": "jrpc-schema",
   "version": "0.0.3",
   "description": "Parses a json schema into a simple usable api object",
-  "main": "main.js",
-  "scripts": {
-    "test": "mocha --reporter spec"
-  },
-  "keywords": [
-    "json",
-    "rpc",
-    "json-rpc",
-    "api",
-    "schema"
-  ],
   "author": "Florian Albertz",
-  "license": "BSD-2-Clause",
-  "devDependencies": {
-    "must": "~0.10.0",
-    "mocha": "~1.14.0"
+  "license": "BSD-3-Clause",
+  "main": "lib/jrpc-schema.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Paulavery/jrpc-schema.git"
   },
-  "repository" : {
-    "type" : "git",
-    "url" : "https://github.com/Paulavery/jrpc-schema.git"
+  "scripts": {
+    "prepublish": "make lint"
+  },
+  "devDependencies": {
+    "eslint": "^0.21.1",
+    "version-bump": "^0.1.0"
   },
   "dependencies": {
-    "JSV": "~4.0.2"
+    "skeemas": "^1.1.6"
+  },
+  "eslintConfig": {
+    "env": {
+      "es6": true,
+      "node": true
+    },
+    "rules": {
+      "curly": [
+        2,
+        "multi-line"
+      ],
+      "quotes": [
+        2,
+        "single"
+      ]
+    },
+    "ecmaFeatures": {
+      "modules": true
+    }
   }
 }
