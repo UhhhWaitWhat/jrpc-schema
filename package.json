@@ -1,6 +1,6 @@
 {
   "name": "jrpc-schema",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "description": "Parses a json schema into a simple usable api object",
   "author": "Florian Albertz",
   "license": "BSD-3-Clause",
