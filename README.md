@@ -11,13 +11,23 @@ Therefore you have to provide the facilities for this on your own. For all examp
 
 ```js
 var jrpc = require('jrpc-schema');
+var Schema = jrpc.Schema;
 var socket = new WebSocket('ws://localhost/');
 ```
 
 API
 ---
-### jrpc.Schema(schemaObject)
-The main "meat" of the library. The `Schema` constructor should be invoked with a JSON Schema object (not a JSON string);
+### jrpc.Schema(schemaObject, transmitterFunction)
+The main "meat" of the library. The `Schema` constructor should be invoked with a JSON Schema object (not a JSON string). The second parameter should be a transmitter function, which takes a json string as its first argument and sends it to the server.
+
+```js
+var schema = new jrpc.Schema(someSchema, socket.send.bind(socket));
+```
+
+You will then have to pass your servers responses into the schemas `handleResponse` method:
+```js
+socket.on('message', schema.handleResponse.bind(schema));
+```
 
 #### Validator Functions
 A validator function is a function, which takes a javascript value and validates it against a specific schema. It simply returns `true` if the value is valid and `false` otherwise.
@@ -41,7 +51,7 @@ var schema = {
 
 **Usage**
 ```js
-var root = parse(schema)
+var root = new Schema(schema, someTransmitter);
 
 //Returns true if `value` is an object
 root.schema(value)
