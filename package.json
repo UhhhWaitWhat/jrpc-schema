@@ -17,7 +17,8 @@
     "version-bump": "^0.1.0"
   },
   "dependencies": {
-    "skeemas": "^1.1.6"
+    "skeemas": "^1.1.6",
+    "bluebird":"latest"
   },
   "eslintConfig": {
     "env": {
