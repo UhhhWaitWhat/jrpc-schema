@@ -110,6 +110,23 @@ root.schema.square(27, 3).then(function(result) {
 })
 ```
 
+##### Batch Requests
+If you need to send multiple requests in a batch, you can use a batch object:
+
+```js
+var root = new Schema(schema, transmitter);
+var batch = root.batch();
+
+var res = batch.schema.someMethod();
+var res2 = batch.schema.someOtherMethod();
+
+batch.send();
+```
+
+The batch object will have all the methods of the main schema. But they will all be queued until you call `.send()` on the batch object.
+
+The methods still return promises which will be resolved with the methods result.
+
 #### JSON-RPC Notifications
 JSON RPC notifications are treated similarly to methods.
 
