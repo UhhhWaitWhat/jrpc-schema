@@ -29,6 +29,14 @@ You will then have to pass your servers responses into the schemas `handleRespon
 socket.on('message', schema.handleResponse.bind(schema));
 ```
 
+#### Handling errors
+To handle any errors while e.g. parsing JSON, you can attach a handler to the schema object:
+```js
+schema.onerror = e => console.error(e);
+```
+
+If no handler is attached, the error **will** be thrown.
+
 #### Validator Functions
 A validator function is a function, which takes a javascript value and validates it against a specific schema. It simply returns `true` if the value is valid and `false` otherwise.
 In addition, if the validators schema had any other schemas assigned to it as properties (this will be the case for almost all top-level json-schemas), it has a validator function for each of those sub-schemas assigned to it as a property (as functions are objects in js).
@@ -177,6 +185,7 @@ var playerInfo = jrpc.run('Player.GetInfo', {
 //Log the result
 playerInfo.then(function(info) {
 	console.log(info);
+}
 });
 
 //Ensure the library gets the servers data
